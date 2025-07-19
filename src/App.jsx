@@ -10,6 +10,8 @@ const apiKey = import.meta.env.VITE_API_KEY;
 function App() {
   const [bookName, setBookName] = useState("");
 
+  const [books, setBooks] = useState([]);
+
   async function getBooks() {
     try {
       let response;
@@ -24,6 +26,8 @@ function App() {
 
       const bookItems = data.items;
 
+      setBooks(bookItems);
+
       bookItems.forEach((books) => {
         // console.log(books.volumeInfo);
       });
@@ -36,13 +40,16 @@ function App() {
     }
   }
 
+  useEffect(() => {
+  }, [bookName]);
+  // if (bookName);
   if (bookName) getBooks();
 
   return (
     <>
       <Header />
       <Form setBookName={setBookName} />
-      <BookList getBooks={bookName ? getBooks() : ""} bookName={bookName} />
+      <BookList getBooks={bookName ? books : ""} bookName={bookName} />
       <Footer />
     </>
   );
