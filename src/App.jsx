@@ -1,18 +1,30 @@
-import { useState } from "react";
-console.log();
+import { useEffect, useState } from "react";
+
+import Header from "./components/Header.jsx";
+import List from "./components/List.jsx";
+import Form from "./components/Form.jsx";
+import Footer from "./components/Footer.jsx";
+
 const apiKey = import.meta.env.VITE_API_KEY;
 
-function writeSomething(e) {
-  const inputValue = e.value;
-}
-
 function App() {
+  const [bookSearch, setBookSearch] = useState("");
+
+  console.log(bookSearch);
   async function getBooks() {
     try {
-      const response = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=the+oldman+and+the+sea&time&printType=all&keyes&key=${apiKey}`
-      );
+      let response;
 
+      if (!bookSearch) {
+        response = await fetch(
+          `https://www.googleapis.com/books/v1/volumes?q=${bookSearch}&time&printType=all&keyes&key=${apiKey}`
+        );
+      } else {
+        response = await fetch(
+          `https://www.googleapis.com/books/v1/volumes?q=&time&printType=all&keyes&key=${apiKey}`
+        );
+      }
+    
       if (!response.ok) return new Error(`Error API: ${response.status}`);
 
       const data = await response.json();
@@ -22,17 +34,23 @@ function App() {
       bookItems.forEach((books) => {
         console.log(books.volumeInfo.title);
       });
-
       console.log(data);
+      return data;
     } catch (e) {
       console.error("sss" + e);
     }
   }
 
   getBooks();
-  console.log("sdfsfd");
 
-  return <></>;
+  return (
+    <>
+      <Header />
+      <Form />
+      <List />
+      <Footer />
+    </>
+  );
 }
 
 export default App;
