@@ -1,36 +1,83 @@
 import { useState, useEffect } from "react";
 
-const BookList = ({ getBooks }) => {
+const BookList = ({ getBooks, bookName }) => {
   const [showBooks, setShowBooks] = useState(false);
+
+  const [books, setBooks] = useState([]);
+
   useEffect(() => {
-    console.log(showBooks);
-  }, [showBooks]);
+    async function getBookList() {
+      try {
+        const response = await getBooks;
 
-  async function getBookList() {
-    try {
-      const response = await getBooks;
+        console.log(response.items);
 
-      console.log(response.items);
+        if (response) setShowBooks(true);
 
-      if (response) setShowBooks(true);
+        const itemsInfo = response.items;
 
-      const itemsInfo = response.items;
+        if (itemsInfo) {
+          setBooks(itemsInfo);
+          setShowBooks;
+        }
 
-      itemsInfo.map(({ volumeInfo }) => {
-        const { title, subtitle, publishedDate } = volumeInfo;
-        console.log(volumeInfo);
-        console.log(title, subtitle, publishedDate);
-      });
+        // itemsInfo.map(({ volumeInfo }) => {
+        //   const {
+        //     title,
+        //     subtitle,
+        //     publishedDate,
+        //     printType,
+        //     pageCount,
+        //     language,
+        //     infoLink,
+        //   } = volumeInfo;
+        //   console.log(volumeInfo);
+        //   console.log(title, subtitle, publishedDate);
+        // });
 
-      return response.items;
-    } catch (e) {
-      console.error(e);
+        return itemsInfo;
+      } catch (e) {
+        console.error(e);
+      }
     }
+
+    getBookList();
+  }, [getBooks]);
+
+  // const value = getBookList();
+
+  function array() {
+    return [1, 2, 3, 4];
   }
 
-  getBookList();
+  function hey(callback) {
+    console.log("here");
+    return callback();
+  }
 
-  return <>{showBooks ? <li>sfs</li> : <li>JAJAJAJJA</li>}</>;
+  console.log(typeof array, typeof getBookList);
+
+  /* 
+        {showBooks ? {
+        getBookList().map(({ volumeInfo }) => {
+          return <li>{volumeInfo.title}</li>;
+        })
+      } : (
+        <li>JAJAJAJJA</li>
+      )}
+  */
+
+  return (
+    <>
+      {showBooks ? (
+        books.map(({ volumeInfo, id }) => {
+          return <li key={id}>{volumeInfo.title}</li>;
+        })
+      ) : (
+        <li>JAJAJAJJA</li>
+      )}
+    </>
+  );
 };
 
 export default BookList;

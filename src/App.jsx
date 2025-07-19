@@ -42,7 +42,7 @@ function App() {
     <>
       <Header />
       <Form setBookName={setBookName} />
-      <BookList getBooks={bookName ? getBooks() : ""} />
+      <BookList getBooks={bookName ? getBooks() : ""} bookName={bookName} />
       <Footer />
     </>
   );
