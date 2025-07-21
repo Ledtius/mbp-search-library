@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Form({ setBookName }) {
   const [inputValue, setInputValue] = useState("");
+
+  useEffect(()=>{
+    console.log("Hey!");
+  },[])
 
   return (
     <>

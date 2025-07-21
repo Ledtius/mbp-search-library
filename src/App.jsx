@@ -28,28 +28,31 @@ function App() {
 
       setBooks(bookItems);
 
+      console.log(bookItems);
+      console.log(books);
       bookItems.forEach((books) => {
         // console.log(books.volumeInfo);
       });
 
       // console.log(data);
-
-      return data;
     } catch (e) {
-      console.error("sss" + e);
+      console.error(e);
     }
   }
 
+  console.log(`bookname: ${bookName}`);
   useEffect(() => {
+    // if (bookName) getBooks();
+    // if (bookName) getBooks();
+
+    console.log(`books: ${books}`);
   }, [bookName]);
-  // if (bookName);
-  if (bookName) getBooks();
 
   return (
     <>
       <Header />
       <Form setBookName={setBookName} />
-      <BookList getBooks={bookName ? books : ""} bookName={bookName} />
+      <BookList books={bookName ? "Changed" : ""} bookName={bookName} />
       <Footer />
     </>
   );
