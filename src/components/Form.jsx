@@ -3,10 +3,6 @@ import { useEffect, useState } from "react";
 function Form({ setBookName }) {
   const [inputValue, setInputValue] = useState("");
 
-  useEffect(()=>{
-    console.log("Hey!");
-  },[])
-
   return (
     <>
       <form onSubmit={(e) => e.preventDefault()} action="">

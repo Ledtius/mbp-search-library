@@ -11,6 +11,7 @@ function App() {
   const [bookName, setBookName] = useState("");
 
   const [books, setBooks] = useState([]);
+  const [hello, setHello] = useState("");
 
   async function getBooks() {
     try {
@@ -25,34 +26,27 @@ function App() {
       const data = await response.json();
 
       const bookItems = data.items;
-
+      console.log("Books...");
       setBooks(bookItems);
 
-      console.log(bookItems);
-      console.log(books);
-      bookItems.forEach((books) => {
-        // console.log(books.volumeInfo);
-      });
-
-      // console.log(data);
+      return bookItems;
     } catch (e) {
       console.error(e);
     }
   }
 
-  console.log(`bookname: ${bookName}`);
   useEffect(() => {
-    // if (bookName) getBooks();
-    // if (bookName) getBooks();
+    if (bookName) getBooks();
 
-    console.log(`books: ${books}`);
   }, [bookName]);
+
+
 
   return (
     <>
       <Header />
       <Form setBookName={setBookName} />
-      <BookList books={bookName ? "Changed" : ""} bookName={bookName} />
+      <BookList books={bookName ? books : ""} />
       <Footer />
     </>
   );
