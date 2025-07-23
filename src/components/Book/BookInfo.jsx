@@ -1,40 +1,42 @@
 import Header from "../Layout/Header.jsx";
 import Footer from "../Layout/Footer.jsx";
+import { Link } from "react-router";
 
-const Book = ({
-  image,
-  title,
-  author,
-  publisher,
-  publisherData,
-  description,
-  infoLink,
-}) => {
+const Book = ({ bookData }) => {
+  const {
+    title,
+    authors,
+    description,
+    language,
+    pageCount,
+    volumeInfo,
+    smallImg,
+    normalImg,
+    publishers,
+    publishedDate,
+    categories,
+    previewLink,
+  } = bookData;
   return (
     <>
       <Header />
       <main>
         <section>
-          <img src="#" alt="Book" />
-          <span>Pag num</span>
+          <img src={normalImg} alt="Book" />
+          <span>{pageCount}</span>
         </section>
         <section>
-          <h1>Title</h1>
-          <h2>Author</h2>
+          <h1>{title}</h1>
+          <h2>{authors}</h2>
           <div>
-            <h2>Category</h2>
+            <h2>{categories}</h2>
             <div>
-              <h2>Publisher</h2>
-              <h2>Publisher Data</h2>
+              <h2>{publishers}</h2>
+              <h2>{publishedDate}</h2>
             </div>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos soluta
-            illo quia fugit, unde porro doloremque. Architecto quia iure,
-            eligendi rem ducimus consectetur ipsam facere ipsa molestiae rerum
-            est doloribus.
-          </p>
-          <a href="">Link</a>
+          <p>{description}</p>
+          <a href="#">{previewLink}</a>
         </section>
       </main>
       <Footer />

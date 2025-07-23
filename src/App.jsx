@@ -12,7 +12,7 @@ function App() {
 
   const [books, setBooks] = useState([]);
 
-  const [booksData, setBooksData] = useState({});
+  const [bookData, setBookData] = useState({});
 
   async function getBooks() {
     try {
@@ -41,8 +41,8 @@ function App() {
   }, [bookName]);
 
   useEffect(() => {
-    console.log(booksData);
-  }, [booksData]);
+    console.log(bookData);
+  }, [bookData]);
 
   return (
     <>
@@ -50,9 +50,10 @@ function App() {
       <Main
         setBookName={setBookName}
         books={bookName ? books : ""}
-        setBooksData={setBooksData}
+        setBookData={setBookData}
       />
-      <BookInfo />
+      <h1>-------------------</h1>
+      <BookInfo bookData={bookData} />
       {/* <Footer /> */}
     </>
   );
