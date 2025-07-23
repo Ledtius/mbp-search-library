@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
-import Header from "./components/Header.jsx";
-import BookList from "./components/BookList.jsx";
-import Form from "./components/Form.jsx";
-import Footer from "./components/Footer.jsx";
+import Header from "./components/Layout/Header.jsx";
+import Main from "./components//Layout/Main.jsx";
+import Footer from "./components/Layout/Footer.jsx";
+import BookInfo from "./components/Book/BookInfo.jsx";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 
@@ -11,7 +11,8 @@ function App() {
   const [bookName, setBookName] = useState("");
 
   const [books, setBooks] = useState([]);
-  const [hello, setHello] = useState("");
+
+  const [booksData, setBooksData] = useState({});
 
   async function getBooks() {
     try {
@@ -37,17 +38,22 @@ function App() {
 
   useEffect(() => {
     if (bookName) getBooks();
-
   }, [bookName]);
 
-
+  useEffect(() => {
+    console.log(booksData);
+  }, [booksData]);
 
   return (
     <>
-      <Header />
-      <Form setBookName={setBookName} />
-      <BookList books={bookName ? books : ""} />
-      <Footer />
+      {/* <Header /> */}
+      <Main
+        setBookName={setBookName}
+        books={bookName ? books : ""}
+        setBooksData={setBooksData}
+      />
+      <BookInfo />
+      {/* <Footer /> */}
     </>
   );
 }
