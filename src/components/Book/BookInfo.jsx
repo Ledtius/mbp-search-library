@@ -17,6 +17,8 @@ const Book = ({ bookData }) => {
     categories,
     previewLink,
   } = bookData;
+
+  console.log(previewLink);
   return (
     <>
       <Header />
@@ -36,7 +38,9 @@ const Book = ({ bookData }) => {
             </div>
           </div>
           <p>{description}</p>
-          <a href="#">{previewLink}</a>
+          <a href={previewLink} target="_blank">
+            Link del libro
+          </a>
         </section>
       </main>
       <Footer />
