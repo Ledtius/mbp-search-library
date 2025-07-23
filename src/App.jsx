@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router";
 
-import Header from "./components/Layout/Header.jsx";
-import Main from "./components//Layout/Main.jsx";
-import Footer from "./components/Layout/Footer.jsx";
+import Layout from "./components/Layout.jsx";
+
 import BookInfo from "./components/Book/BookInfo.jsx";
 
+import AboutUs from "./components/AboutUs.jsx";
 const apiKey = import.meta.env.VITE_API_KEY;
 
 function App() {
@@ -46,15 +47,25 @@ function App() {
 
   return (
     <>
-      {/* <Header /> */}
-      <Main
-        setBookName={setBookName}
-        books={bookName ? books : ""}
-        setBookData={setBookData}
-      />
-      <h1>-------------------</h1>
-      <BookInfo bookData={bookData} />
-      {/* <Footer /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Layout
+                setBookName={setBookName}
+                books={bookName ? books : ""}
+                setBookData={setBookData}
+                bookData={bookData}
+                bookName={bookName}
+              />
+            }
+          />
+
+          <Route path="about-us" element={<AboutUs />} />
+          <Route path="book-info" element={<BookInfo bookData={bookData} />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

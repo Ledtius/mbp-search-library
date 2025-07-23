@@ -1,8 +1,13 @@
 import Header from "../Layout/Header.jsx";
 import Footer from "../Layout/Footer.jsx";
-import { Link } from "react-router";
+import { useEffect } from "react";
+const Book = ({ bookData = {} }) => {
+  console.log(bookData);
 
-const Book = ({ bookData }) => {
+  useEffect(() => {
+    console.log(bookData);
+  }, [bookData]);
+
   const {
     title,
     authors,

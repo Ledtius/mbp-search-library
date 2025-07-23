@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import BookPreview from "./BookPreview.jsx";
-
+import BookInfo from "./Book/BookInfo.jsx";
+import { Link } from "react-router";
+Link;
 const BookList = ({ books, setBookData }) => {
   const [showBooks, setShowBooks] = useState(false);
 
@@ -44,32 +46,35 @@ const BookList = ({ books, setBookData }) => {
           const publishedDate = volumeInfo.publishedDate;
 
           return (
-            <li
-              key={id}
-              onClick={() => {
-                setBookData({
-                  title,
-                  authors,
-                  description,
-                  language,
-                  pageCount,
-                  volumeInfo,
-                  smallImg,
-                  normalImg,
-                  publishers,
-                  publishedDate,
-                  categories,
-                  previewLink,
-                });
-              }}
-            >
-              <BookPreview
-                smallImg={smallImg}
-                title={title}
-                authors={authors}
-                language={language}
-                pageCount={pageCount}
-              />
+            <li key={id}>
+              <Link
+                to="book-info"
+                onClick={() => {
+                  console.log("click");
+                  setBookData({
+                    title,
+                    authors,
+                    description,
+                    language,
+                    pageCount,
+                    volumeInfo,
+                    smallImg,
+                    normalImg,
+                    publishers,
+                    publishedDate,
+                    categories,
+                    previewLink,
+                  });
+                }}
+              >
+                <BookPreview
+                  smallImg={smallImg}
+                  title={title}
+                  authors={authors}
+                  language={language}
+                  pageCount={pageCount}
+                />
+              </Link>
             </li>
           );
         })
