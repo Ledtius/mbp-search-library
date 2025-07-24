@@ -63,9 +63,10 @@ function App() {
             />
 
             <Route path="about-us" element={<AboutUs />} />
+
             <Route
               path="book-info"
-              element={<BookInfo bookData={bookName ? bookData : []} />}
+              element={<BookInfo bookData={bookData} />}
             />
           </Route>
         </Routes>
