@@ -1,9 +1,11 @@
+
 function Footer() {
   return (
     <>
       <footer>
         <small>
-          <a href="#">©Calet Devia</a> Todos los derechos reservados
+          <a target="_blank" href="https://github.com/Ledtius">©Calet Devia</a> Todos los
+          derechos reservados
         </small>
       </footer>
     </>

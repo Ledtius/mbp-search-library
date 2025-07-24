@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import BookPreview from "./BookPreview.jsx";
-import BookInfo from "./Book/BookInfo.jsx";
+import BookInfo from "./BookInfo.jsx";
 import { Link } from "react-router";
 Link;
-const BookList = ({ books, setBookData }) => {
+const BookList = ({ books = [], setBookData }) => {
   const [showBooks, setShowBooks] = useState(false);
 
   useEffect(() => {
-    console.log(books);
+    // console.log(books);
     if (books.length > 0) setShowBooks(true);
   }, [books]);
 

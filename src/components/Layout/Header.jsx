@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 function Header() {
   return (
     <>
@@ -9,10 +11,10 @@ function Header() {
         <nav>
           <ul>
             <li>
-              <a href="/">Inicio</a>
+              <Link to="/">Inicio</Link>
             </li>
             <li>
-              <a href="about-us">Sobre nosotros</a>
+              <Link to="about-us">Sobre nosotros</Link>
             </li>
           </ul>
         </nav>

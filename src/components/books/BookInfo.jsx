@@ -26,29 +26,25 @@ const Book = ({ bookData = {} }) => {
   console.log(previewLink);
   return (
     <>
-      <Header />
-      <main>
-        <section>
-          <img src={normalImg} alt="Book" />
-          <span>{pageCount}</span>
-        </section>
-        <section>
-          <h1>{title}</h1>
-          <h2>{authors}</h2>
+      <section>
+        <img src={normalImg} alt="Book" />
+        <span>{pageCount}</span>
+      </section>
+      <section>
+        <h1>{title}</h1>
+        <h2>{authors}</h2>
+        <div>
+          <h2>{categories}</h2>
           <div>
-            <h2>{categories}</h2>
-            <div>
-              <h2>{publishers}</h2>
-              <h2>{publishedDate}</h2>
-            </div>
+            <h2>{publishers}</h2>
+            <h2>{publishedDate}</h2>
           </div>
-          <p>{description}</p>
-          <a href={previewLink} target="_blank">
-            Link del libro
-          </a>
-        </section>
-      </main>
-      <Footer />
+        </div>
+        <p>{description}</p>
+        <a href={previewLink} target="_blank">
+          Link del libro
+        </a>
+      </section>
     </>
   );
 };

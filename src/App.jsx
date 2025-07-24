@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router";
 
-import Layout from "./components/Layout.jsx";
+import Layout from "./components/layout/Layout.jsx";
 
-import BookInfo from "./components/Book/BookInfo.jsx";
+import Home from "./components/pages/Home.jsx";
 
-import AboutUs from "./components/AboutUs.jsx";
+import BookInfo from "./components/books/BookInfo.jsx";
+
+import AboutUs from "./components/pages/AboutUs.jsx";
+
 const apiKey = import.meta.env.VITE_API_KEY;
 
 function App() {
@@ -49,21 +52,12 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Layout
-                setBookName={setBookName}
-                books={bookName ? books : ""}
-                setBookData={setBookData}
-                bookData={bookData}
-                bookName={bookName}
-              />
-            }
-          />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
 
-          <Route path="about-us" element={<AboutUs />} />
-          <Route path="book-info" element={<BookInfo bookData={bookData} />} />
+            <Route path="about-us" element={<AboutUs />} />
+            <Route path="book-info" element={<BookInfo />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>
