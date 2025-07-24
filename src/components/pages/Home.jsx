@@ -1,11 +1,11 @@
 import Form from "../common/Form.jsx";
 import BookList from "../books/BookList.jsx";
 
-const Home = () => {
+const Home = ({ setBookName, books, setBookData }) => {
   return (
     <>
-      <Form />
-      <BookList />
+      <Form setBookName={setBookName} />
+      <BookList books={books} setBookData={setBookData} />
     </>
   );
 };

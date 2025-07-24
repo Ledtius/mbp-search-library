@@ -1,8 +1,8 @@
-import Header from "../Layout/Header.jsx";
-import Footer from "../Layout/Footer.jsx";
+
 import { useEffect } from "react";
-const Book = ({ bookData = {} }) => {
+const Book = ({ bookData }) => {
   console.log(bookData);
+  console.log("bookData");
 
   useEffect(() => {
     console.log(bookData);

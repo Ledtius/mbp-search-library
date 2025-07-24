@@ -31,10 +31,8 @@ function App() {
       const data = await response.json();
 
       const bookItems = data.items;
-      console.log("Books...");
       setBooks(bookItems);
-
-      return bookItems;
+      console.log(bookItems);
     } catch (e) {
       console.error(e);
     }
@@ -53,10 +51,22 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
+            <Route
+              index
+              element={
+                <Home
+                  setBookName={setBookName}
+                  books={bookName ? books : []}
+                  setBookData={setBookData}
+                />
+              }
+            />
 
             <Route path="about-us" element={<AboutUs />} />
-            <Route path="book-info" element={<BookInfo />} />
+            <Route
+              path="book-info"
+              element={<BookInfo bookData={bookName ? bookData : []} />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>
