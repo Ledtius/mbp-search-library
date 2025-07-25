@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import googleBooks from "../services/googleBooks.js";
 const apiKey = import.meta.env.VITE_API_KEY;
 
 const useBooks = () => {
@@ -8,29 +9,28 @@ const useBooks = () => {
 
   const [bookData, setBookData] = useState({});
 
-  async function getBooks() {
-    try {
-      let response;
+  // async function getBooks() {
+  //   try {
+  //     let response;
 
-      response = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${bookName}&time&printType=all&keyes&key=${apiKey}`
-      );
+  //     response = await fetch(
+  //       `https://www.googleapis.com/books/v1/volumes?q=${bookName}&time&printType=all&keyes&key=${apiKey}`
+  //     );
 
-      if (!response.ok) return new Error(`Error API: ${response.status}`);
+  //     if (!response.ok) return new Error(`Error API: ${response.status}`);
 
-      // console.log(response);
-      const data = await response.json();
-
-      const bookItems = data.items;
-      setBooks(bookItems);
-      // console.log(bookItems);
-    } catch (e) {
-      console.error(e);
-    }
-  }
+  //     // console.log(response);
+  //     const data = await response.json();
+  //     const bookItems = data.items;
+  //     setBooks(bookItems);
+  //     // console.log(bookItems);
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // }
 
   useEffect(() => {
-    if (bookName) getBooks();
+    if (bookName) googleBooks(setBooks, bookName);
   }, [bookName]);
 
   useEffect(() => {
