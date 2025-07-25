@@ -11,9 +11,9 @@ const BookPreview = ({ smallImg, title, authors, language, pageCount }) => {
         />
         <div>
           <h2>{title}</h2>
-          <h3>{authors}</h3>
-          <h3>{language}</h3>
-          <h3>{pageCount}</h3>
+          <h4>{authors}</h4>
+          <span>{language}</span>
+          <span>{pageCount}</span>
         </div>
       </section>
     </>

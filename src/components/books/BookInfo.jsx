@@ -44,10 +44,10 @@ const Book = () => {
         <h1>{title}</h1>
         <h2>{authors}</h2>
         <div>
-          <h2>{categories}</h2>
+          <h3>{categories}</h3>
           <div>
-            <h2>{publishers}</h2>
-            <h2>{publishedDate}</h2>
+            <h4>{publishers}</h4>
+            <span>{publishedDate}</span>
           </div>
         </div>
         <p>{description}</p>
