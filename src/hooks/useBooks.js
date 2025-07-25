@@ -18,12 +18,12 @@ const useBooks = () => {
 
       if (!response.ok) return new Error(`Error API: ${response.status}`);
 
-      console.log(response);
+      // console.log(response);
       const data = await response.json();
 
       const bookItems = data.items;
       setBooks(bookItems);
-      console.log(bookItems);
+      // console.log(bookItems);
     } catch (e) {
       console.error(e);
     }
@@ -34,8 +34,11 @@ const useBooks = () => {
   }, [bookName]);
 
   useEffect(() => {
-    console.log(bookData);
+    // console.log(bookData);
   }, [bookData]);
+  useEffect(() => {
+    console.log(books);
+  }, [books]);
 
   return {
     bookName,

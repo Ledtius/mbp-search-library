@@ -1,9 +1,13 @@
-import { useState, useEffect } from "react";
 import BookPreview from "./BookPreview.jsx";
+import { useState, useEffect } from "react";
+import ContextBooks from "../../ContextBooks.js";
+import { useContext } from "react";
 import { Link } from "react-router";
 
-const BookList = ({ books, setBookData }) => {
+const BookList = () => {
   const [showBooks, setShowBooks] = useState(false);
+
+  const { books, setBookData } = useContext(ContextBooks);
 
   useEffect(() => {
     console.log(books);

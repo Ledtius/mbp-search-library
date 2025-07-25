@@ -1,6 +1,9 @@
-
 import { useEffect } from "react";
-const Book = ({ bookData }) => {
+import { useContext } from "react";
+import ContextBooks from "../../ContextBooks";
+const Book = () => {
+  const { bookData } = useContext(ContextBooks);
+
   console.log(bookData);
   console.log("bookData");
 
@@ -27,8 +30,13 @@ const Book = ({ bookData }) => {
   return (
     <>
       <section>
-        <img src={normalImg ||
-            `https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png`} alt="Book" />
+        <img
+          src={
+            normalImg ||
+            `https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png`
+          }
+          alt="Book"
+        />
         <span>{pageCount}</span>
       </section>
       <section>

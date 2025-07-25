@@ -1,8 +1,11 @@
 import { useState } from "react";
+import ContextBooks from "../../ContextBooks";
+import { useContext } from "react";
 
-function Form({ setBookName }) {
+function Form() {
+  const { setBookName } = useContext(ContextBooks);
+
   const [inputValue, setInputValue] = useState("");
-
   return (
     <>
       <form onSubmit={(e) => e.preventDefault()} action="">
