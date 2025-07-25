@@ -27,7 +27,8 @@ const Book = ({ bookData }) => {
   return (
     <>
       <section>
-        <img src={normalImg} alt="Book" />
+        <img src={normalImg ||
+            `https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png`} alt="Book" />
         <span>{pageCount}</span>
       </section>
       <section>
