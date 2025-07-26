@@ -2,8 +2,7 @@ import { useContext } from "react";
 import ContextBooks from "../../context/ContextBooks.js";
 import { Link } from "react-router";
 
-const BookPreview = ({
-  id,
+const BookPrevFav = ({
   title,
   authors,
   language,
@@ -18,7 +17,6 @@ const BookPreview = ({
   previewLink,
 }) => {
   const bookDataLocal = {
-    id,
     title,
     authors,
     language,
@@ -34,7 +32,6 @@ const BookPreview = ({
   };
 
   const { favBooks, setFavBooks } = useContext(ContextBooks);
-
   return (
     <>
       <section>
@@ -72,4 +69,4 @@ const BookPreview = ({
   );
 };
 
-export default BookPreview;
+export default BookPrevFav;

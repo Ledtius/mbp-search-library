@@ -58,6 +58,7 @@ const BookList = () => {
               }}
             >
               <BookPreview
+                id={id}
                 title={title}
                 authors={authors}
                 description={description}
