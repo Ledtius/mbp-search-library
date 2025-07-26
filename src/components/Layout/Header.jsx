@@ -16,6 +16,9 @@ function Header() {
             <li>
               <Link to="about-us">Sobre nosotros</Link>
             </li>
+            <li>
+              <Link to="favorites">Favoritos</Link>
+            </li>
           </ul>
         </nav>
       </header>

@@ -8,6 +8,8 @@ import Home from "./components/pages/Home.jsx";
 
 import BookInfo from "./components/books/BookInfo.jsx";
 
+import Favorites from "./components/pages/Favorites.jsx";
+
 import AboutUs from "./components/pages/AboutUs.jsx";
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
               <Route path="about-us" element={<AboutUs />} />
 
               <Route path="book-info" element={<BookInfo />} />
+
+              <Route path="favorites" element={<Favorites />} />
             </Route>
           </Routes>
         </BrowserRouter>
