@@ -37,35 +37,40 @@ const BookList = () => {
           const publishedDate = volumeInfo.publishedDate;
 
           return (
-            <li key={id}>
-              <Link
-                to="book-info"
-                onClick={() => {
-                  console.log("click");
-                  setBookData({
-                    title,
-                    authors,
-                    description,
-                    language,
-                    pageCount,
-                    volumeInfo,
-                    smallImg,
-                    normalImg,
-                    publishers,
-                    publishedDate,
-                    categories,
-                    previewLink,
-                  });
-                }}
-              >
-                <BookPreview
-                  smallImg={smallImg}
-                  title={title}
-                  authors={authors}
-                  language={language}
-                  pageCount={pageCount}
-                />
-              </Link>
+            <li
+              key={id}
+              onClick={() => {
+                console.log("click");
+                setBookData({
+                  title,
+                  authors,
+                  description,
+                  language,
+                  pageCount,
+                  volumeInfo,
+                  smallImg,
+                  normalImg,
+                  publishers,
+                  publishedDate,
+                  categories,
+                  previewLink,
+                });
+              }}
+            >
+              <BookPreview
+                title={title}
+                authors={authors}
+                description={description}
+                language={language}
+                pageCount={pageCount}
+                volumeInfo={volumeInfo}
+                smallImg={smallImg}
+                normalImg={normalImg}
+                publishers={publishers}
+                publishedDate={publishedDate}
+                categories={categories}
+                previewLink={previewLink}
+              />
             </li>
           );
         })

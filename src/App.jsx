@@ -1,4 +1,5 @@
 import useBooks from "./hooks/useBooks.js";
+import useStorage from "./hooks/useStorage.js";
 import ContextBooks from "./context/ContextBooks.js";
 import { BrowserRouter, Routes, Route } from "react-router";
 
@@ -15,10 +16,19 @@ import AboutUs from "./components/pages/AboutUs.jsx";
 function App() {
   const { bookName, books, bookData, setBookName, setBookData } = useBooks();
 
+  const { favBooks, setFavBooks } = useStorage();
   return (
     <>
       <ContextBooks.Provider
-        value={{ bookName, books, bookData, setBookName, setBookData }}
+        value={{
+          bookName,
+          books,
+          bookData,
+          setBookName,
+          setBookData,
+          favBooks,
+          setFavBooks,
+        }}
       >
         <BrowserRouter>
           <Routes>
