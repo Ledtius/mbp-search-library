@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import ContextBooks from "../../context/ContextBooks.js";
+import FavBtn from "./FavBtn.jsx";
 import { Link } from "react-router";
 
 const BookPreview = ({
@@ -33,8 +32,6 @@ const BookPreview = ({
     previewLink,
   };
 
-  const { favBooks, setFavBooks } = useContext(ContextBooks);
-
   return (
     <>
       <section>
@@ -53,20 +50,8 @@ const BookPreview = ({
             <span>{pageCount}</span>
           </div>
         </Link>
-        <button
-          onClick={() => {
-            localStorage.setItem(
-              "favBooks",
-              JSON.stringify([...favBooks, bookDataLocal])
-            );
 
-            setFavBooks((c) => {
-              return [...c, bookDataLocal];
-            });
-          }}
-        >
-          Añadir a favorito
-        </button>
+        <FavBtn bookDataLocal={bookDataLocal} idBooks={id} />
       </section>
     </>
   );

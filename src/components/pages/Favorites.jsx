@@ -1,9 +1,10 @@
 import ContextBooks from "../../context/ContextBooks.js";
 import { useContext } from "react";
-import BookPrevFav from "../books/BookPrevFav.jsx";
+import BookPreview from "../books/BookPreview.jsx";
 
 const Favorites = () => {
   const { favBooks } = useContext(ContextBooks);
+  console.log("Faav");
   return (
     <>
       <ul>
@@ -25,7 +26,7 @@ const Favorites = () => {
           }) => {
             return (
               <li key={id}>
-                <BookPrevFav
+                <BookPreview
                   title={title}
                   authors={authors}
                   description={description}

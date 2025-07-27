@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useStorage = (book) => {
+const useStorage = () => {
   const [favBooks, setFavBooks] = useState(
     () => JSON.parse(localStorage.getItem("favBooks")) || []
   );
