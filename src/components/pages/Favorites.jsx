@@ -1,10 +1,10 @@
 import ContextBooks from "../../context/ContextBooks.js";
 import { useContext } from "react";
 import BookPreview from "../books/BookPreview.jsx";
+import { Link } from "react-router";
 
 const Favorites = () => {
-  const { favBooks } = useContext(ContextBooks);
-  console.log("Faav");
+  const { favBooks, setBookData } = useContext(ContextBooks);
   return (
     <>
       <ul>
@@ -25,7 +25,26 @@ const Favorites = () => {
             previewLink,
           }) => {
             return (
-              <li key={id}>
+              <li
+                key={id}
+                onClick={() => {
+                  setBookData({
+                    id,
+                    title,
+                    authors,
+                    language,
+                    smallImg,
+                    pageCount,
+                    description,
+                    volumeInfo,
+                    normalImg,
+                    publishers,
+                    publishedDate,
+                    categories,
+                    previewLink,
+                  });
+                }}
+              >
                 <BookPreview
                   id={id}
                   title={title}
@@ -41,6 +60,7 @@ const Favorites = () => {
                   categories={categories}
                   previewLink={previewLink}
                 />
+                <Link to="/favorites/book-info">ss</Link>
               </li>
             );
           }

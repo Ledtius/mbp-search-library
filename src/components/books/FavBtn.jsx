@@ -11,11 +11,7 @@ const FavBtn = ({ bookDataLocal, idBook }) => {
 
     const { favorite } = bookFav;
 
-    console.log(stateFavBooks);
-    console.log(bookFav);
-    console.log(favorite);
-
-    if (favorite == undefined) return true;
+    if (!favorite) return true;
     else return false;
   });
 
@@ -43,9 +39,7 @@ const FavBtn = ({ bookDataLocal, idBook }) => {
 
             setFavBooks(withoutValue);
             localStorage.setItem("favBooks", JSON.stringify(withoutValue));
-            console.log(withoutValue);
-
-            // const { favorite } = stateFavBooks;
+            setFavState(true)
           }
         }}
       >

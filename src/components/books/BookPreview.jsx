@@ -31,7 +31,6 @@ const BookPreview = ({
     categories,
     previewLink,
   };
-
   return (
     <>
       <section>

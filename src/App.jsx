@@ -13,12 +13,13 @@ import BookInfo from "./components/books/BookInfo.jsx";
 
 import Favorites from "./components/pages/Favorites.jsx";
 
+
 import AboutUs from "./components/pages/AboutUs.jsx";
 
 function App() {
   const { bookName, books, bookData, setBookName, setBookData } = useBooks();
 
-    console.log("App");
+  console.log("App");
   const { favBooks, setFavBooks } = useStorage();
   return (
     <>
@@ -43,6 +44,7 @@ function App() {
               <Route path="book-info" element={<BookInfo />} />
 
               <Route path="favorites" element={<Favorites />} />
+              <Route path="/favorites/book-info" element={<BookInfo/>} />
             </Route>
           </Routes>
         </BrowserRouter>

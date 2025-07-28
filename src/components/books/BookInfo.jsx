@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useContext } from "react";
 import ContextBooks from "../../context/ContextBooks.js";
+import FavBtn from "./FavBtn.jsx";
 
 const Book = () => {
   const { bookData } = useContext(ContextBooks);
@@ -13,6 +14,7 @@ const Book = () => {
   }, [bookData]);
 
   const {
+    id,
     title,
     authors,
     description,
@@ -27,7 +29,8 @@ const Book = () => {
     previewLink,
   } = bookData;
 
-  console.log(previewLink);
+
+  console.log(id);
   return (
     <>
       <section>
@@ -54,6 +57,7 @@ const Book = () => {
         <a href={previewLink} target="_blank">
           Link del libro
         </a>
+        <FavBtn idBook={id} bookDataLocal={bookData} />
       </section>
     </>
   );
