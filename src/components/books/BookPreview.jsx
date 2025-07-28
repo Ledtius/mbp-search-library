@@ -51,7 +51,7 @@ const BookPreview = ({
           </div>
         </Link>
 
-        <FavBtn bookDataLocal={bookDataLocal} idBooks={id} />
+        <FavBtn bookDataLocal={bookDataLocal} idBook={id} />
       </section>
     </>
   );

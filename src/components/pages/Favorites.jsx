@@ -27,6 +27,7 @@ const Favorites = () => {
             return (
               <li key={id}>
                 <BookPreview
+                  id={id}
                   title={title}
                   authors={authors}
                   description={description}

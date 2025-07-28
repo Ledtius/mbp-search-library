@@ -18,8 +18,6 @@ import AboutUs from "./components/pages/AboutUs.jsx";
 function App() {
   const { bookName, books, bookData, setBookName, setBookData } = useBooks();
 
-  const [prove, setProve] = useState("1");
-
     console.log("App");
   const { favBooks, setFavBooks } = useStorage();
   return (
@@ -33,8 +31,6 @@ function App() {
           setBookData,
           favBooks,
           setFavBooks,
-          prove,
-          setProve,
         }}
       >
         <BrowserRouter>
